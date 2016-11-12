@@ -1,0 +1,60 @@
+<div class="container" ng-controller="CartCtrl">
+    <div class="row">
+        <div class="col-xs-8 col-md-9 col-sm-9 col-lg-9">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>PICTURE</th>
+                        <th>ITEM</th>
+                        <th>PRICE</th>
+                        <th width="30%">DESCRIPTION</th>
+                        <th>ADD</th>
+                        <th>REMOVE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in items">
+                        <td><img src="{{item.picture}}" class="img-rounded" alt="{{item.name}}" width="80" height="60">
+                        </td>
+                        <td>{{item.name}}</td>
+                        <td>${{item.price}}</td>
+                        <td>{{item.description}}</td>
+                        <td>
+                            <button type="button" class="btn btn-default"
+                                    ng-click="addValue(item.name,item.price)">
+                            <span class="glyphicon glyphicon-plus" style="color:green" display=block"
+                                  text-align="center">
+                        </span></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default"
+                                    ng-click="removeValue(item.name,item.price)">
+                            <span class="glyphicon glyphicon-minus" style="color:green" display=block"
+                                  text-align="center">
+                        </span></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3" data-spy="affix" data-offset-top="20">
+            <div class="panel panel-primary">
+                <div id="divTotal" class="panel-heading">
+                    <h3 class="panel-title">TOTAL</h3>
+                </div>
+                <div class="panel-body">
+                    <h2>${{totalValue}}</h2>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#/checkout" class="btn btn-primary">Checkout <span class="glyphicon glyphicon-shopping-cart"
+                                                                            aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
